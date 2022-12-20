@@ -8,6 +8,8 @@
     Title="MainWindow"
     Width="1200"
     Height="800"
+    AllowDrop="True"
+    Drop="Window_Drop"
     mc:Ignorable="d">
     <Border Padding="20">
         <DockPanel LastChildFill="True">
@@ -24,39 +26,55 @@
                         Margin="0,0,0,8"
                         HorizontalAlignment="Center"
                         Orientation="Horizontal">
-                        <Image
-                            Width="16"
-                            Height="16"
-                            Margin="8,0"
-                            RenderOptions.BitmapScalingMode="HighQuality"
-                            Source="/Images/previous.png" />
-                        <Image
-                            Width="16"
-                            Height="16"
-                            Margin="8,0"
-                            RenderOptions.BitmapScalingMode="HighQuality"
-                            Source="/Images/play.png" />
-                        <Image
-                            Width="16"
-                            Height="16"
-                            Margin="8,0"
-                            RenderOptions.BitmapScalingMode="HighQuality"
-                            Source="/Images/pause.png" />
-                        <Image
-                            Width="16"
-                            Height="16"
-                            Margin="8,0"
-                            RenderOptions.BitmapScalingMode="HighQuality"
-                            Source="/Images/next.png" />
+                        <Button Background="Transparent" BorderThickness="0">
+                            <Image
+                                Width="16"
+                                Height="16"
+                                Margin="8,0"
+                                RenderOptions.BitmapScalingMode="HighQuality"
+                                Source="/Images/previous.png" />
+                        </Button>
+                        <Button
+                            Background="Transparent"
+                            BorderThickness="0"
+                            Click="ButtonPlay_Click">
+                            <Image
+                                Width="16"
+                                Height="16"
+                                Margin="8,0"
+                                RenderOptions.BitmapScalingMode="HighQuality"
+                                Source="/Images/play.png" />
+                        </Button>
+                        <Button
+                            Background="Transparent"
+                            BorderThickness="0"
+                            Click="ButtonPause_Click">
+                            <Image
+                                Width="16"
+                                Height="16"
+                                Margin="8,0"
+                                RenderOptions.BitmapScalingMode="HighQuality"
+                                Source="/Images/pause.png" />
+                        </Button>
+                        <Button Background="Transparent" BorderThickness="0">
+                            <Image
+                                Width="16"
+                                Height="16"
+                                Margin="8,0"
+                                RenderOptions.BitmapScalingMode="HighQuality"
+                                Source="/Images/next.png" />
+                        </Button>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal">
                         <TextBlock Text="0:10" />
                         <Slider
+                            Name="Slider_Seek"
                             Width="200"
                             Height="18"
                             Margin="8,0"
                             Maximum="100"
                             Minimum="0"
+                            ValueChanged="slider_seek_ValueChanged"
                             Value="0" />
 
                         <TextBlock Text="0:10" />
@@ -81,12 +99,14 @@
                         RenderOptions.BitmapScalingMode="HighQuality"
                         Source="/Images/volume.png" />
                     <Slider
+                        Name="Slider_Volume"
                         Width="18"
                         Height="60"
                         Margin="8,0"
                         Maximum="100"
                         Minimum="0"
                         Orientation="Vertical"
+                        ValueChanged="slider_volume_ValueChanged"
                         Value="0" />
                 </StackPanel>
             </StackPanel>
@@ -134,7 +154,7 @@
                         Text="Playlist" />
 
                     <!--  Playlist  -->
-                    <ListView Name="playlistListView">
+                    <ListView Name="playlistListView" MouseDoubleClick="playlistListView_MouseDoubleClick">
                         <ListView.ItemTemplate>
                             <DataTemplate>
                                 <StackPanel Orientation="Horizontal">
@@ -153,7 +173,11 @@
                 </StackPanel>
 
                 <StackPanel VerticalAlignment="Center">
-                    <MediaElement LoadedBehavior="Pause" Source="/Images/MONO - Waiting For You (Album 22 - Track No.10).mp4" />
+                    <MediaElement
+                        Name="MediaPlayerEl"
+                        LoadedBehavior="Pause"
+                        MediaOpened="MediaPlayerEl_MediaOpened"
+                        Source="/Images/MONO - Waiting For You (Album 22 - Track No.10).mp4" />
                 </StackPanel>
             </DockPanel>
         </DockPanel>

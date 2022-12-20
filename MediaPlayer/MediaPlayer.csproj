@@ -24,9 +24,12 @@
 
   <ItemGroup>
     <Resource Include="Images\add.png" />
-    <Resource Include="Images\MONO - Waiting For You (Album 22 - Track No.10).mp4">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </Resource>
+    <Content Include="Images\MONO - Waiting For You (Album 22 - Track No.10).mp4">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Waiting For You - MONO_ Onionn.mp3">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Resource Include="Images\next.png" />
     <Resource Include="Images\pause.png">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
@@ -43,7 +46,6 @@
     <Resource Include="Images\volume.png">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="Images\Waiting For You - MONO_ Onionn.mp3" />
     <Resource Include="Images\waiting_for_you.png" />
   </ItemGroup>
 
