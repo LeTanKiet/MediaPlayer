@@ -32,10 +32,10 @@ namespace MediaPlayer
             public event PropertyChangedEventHandler? PropertyChanged;
 
             public string Name { get; set; }
-            public string Author { get; set; }
+            //public string Author { get; set; }
             public string Length { get; set; }
             public string Path { get; set; }
-            public dynamic Thumbnail { get; set; }
+            //public dynamic Thumbnail { get; set; }
         }
 
         private List<string> _fileAddedList = new List<string>();
@@ -93,10 +93,10 @@ namespace MediaPlayer
                         MediaFile file = new MediaFile()
                         {
                             Name = f.Tag.Title != null ? f.Tag.Title : filename,
-                            Author = f.Tag.FirstArtist != null ? f.Tag.FirstArtist : "Unknown",
+                            //Author = f.Tag.FirstArtist != null ? f.Tag.FirstArtist : "Unknown",
                             Length = f.Tag.Length != null ? f.Tag.Length : "Unknown",
                             Path = path,
-                            Thumbnail = imgData,
+                            //Thumbnail = imgData,
                         };
 
                         mediaFiles.Add(file);
@@ -193,10 +193,10 @@ namespace MediaPlayer
                         MediaFile file = new MediaFile()
                         {
                             Name = f.Tag.Title != null ? f.Tag.Title : filename,
-                            Author = f.Tag.FirstArtist != null ? f.Tag.FirstArtist : "Unknown",
+                            //Author = f.Tag.FirstArtist != null ? f.Tag.FirstArtist : "Unknown",
                             Length = f.Tag.Length != null ? f.Tag.Length : "Unknown",
                             Path = path,
-                            Thumbnail = imgData,
+                            //Thumbnail = imgData,
                         };
 
                         mediaFiles.Add(file);
