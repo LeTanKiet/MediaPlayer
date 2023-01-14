@@ -10,6 +10,7 @@
     Height="800"
     AllowDrop="True"
     Drop="Window_Drop"
+    KeyDown="Window_KeyDown"
     mc:Ignorable="d">
     <Border Padding="20" Background="#c89666">
         <DockPanel LastChildFill="True">

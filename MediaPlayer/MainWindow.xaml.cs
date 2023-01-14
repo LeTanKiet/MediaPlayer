@@ -351,6 +351,39 @@ namespace MediaPlayer
             playMedia(currentIndex + 1);
         }
 
+        private void Window_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == System.Windows.Input.Key.Space)
+            {
+                if (IsPlaying())
+                {
+                    MediaPlayerEl?.Pause();
+                }
+                else
+                {
+                    MediaPlayerEl.Play();
+                }
+            }
+            
+            if (e.Key == System.Windows.Input.Key.N)
+            {
+                if (currentIndex >= mediaFiles.Count() - 1)
+                {
+                    return;
+                }
+                playMedia(currentIndex + 1);
+            }
+            
+            if (e.Key == System.Windows.Input.Key.P)
+            {
+                if (currentIndex <= 0)
+                {
+                    return;
+                }
+                playMedia(currentIndex - 1);
+            }
+        }
+
         private void ButtonSuffle_Click(object sender, RoutedEventArgs e)
         {
             isSuffle = !isSuffle;
